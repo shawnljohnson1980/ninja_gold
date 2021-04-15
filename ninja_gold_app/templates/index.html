@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Ninja_Gold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css' %}">
+</head>
+
+<body class="b-c">
+    <nav class="navbar navbar-light navbar-expand-md text-warning bg-dark shadow">
+        <div class="container-fluid">
+            <h1>Ninja Gold</h1><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span
+                    class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"></li>
+                    </li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="btn btn-warning ml-5" href="/refresh">refresh </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div
+        class="container d-flex flex-column flex-grow-1 flex-shrink-1 justify-content-between align-content-center mt-5">
+        <div class="row">
+            <div class="col-xl-3 text-warning">
+                <p>Your Gold: {{ gold }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col  mr-3 shadow">
+                <h3 class="text-center text-white font1 mt-2 shadow">Farm</h3>
+                <p class="text-center text-warning mt-5">(Earns 10 - 20 Gold)</p>
+                <form action='/process_money' method='POST'><input class="form-control" type="hidden" name="location"
+                        value="farm">
+                    {% csrf_token %}
+                    <div class="form-group text-center"><button class="btn btn-warning mt-5 shadow" type="submit">Find
+                            Gold</button></div>
+                </form>
+            </div>
+            <div class="col mr-3 shadow">
+                <h3 class="text-center text-white mt-2 shadow">Cave</h3>
+                <p class="text-center text-warning mt-5">(earns 5-10 Gold)</p>
+                <form action='/process_money' method='POST'>
+                    {% csrf_token %}
+                    <div class="form-group text-center"><input class="form-control" type="hidden" name="location"
+                            value="cave">
+                        <button class="btn btn-warning mt-5 shadow" type="submit">Find Gold</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col mr-3 shadow">
+                <h3 class="text-center text-white mt-2 shadow">House</h3>
+                <p class="text-center text-warning mt-5">(Earns 2-5 Gold)</p>
+                <form action='/process_money' method='POST'>
+                    {% csrf_token %}
+                    <div class="form-group text-center">
+                        <input class="form-control" type="hidden" name="location" value="house">
+                        <button class="btn btn-warning mt-5 shadow" type="submit">Find Gold</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col shadow lg">
+                <h3 class="text-center text-white mt-2 shadow">Casino</h3>
+                <p class="text-center text-warning mt-5">(Earns/Takes 0-50 Gold)</p>
+                <form action='/process_money' method='POST'>
+                    {% csrf_token %}
+                    <div class="form-group text-center"><input class="form-control" type="hidden" name="location"
+                            value="casino">
+                        <button class="btn btn-danger mt-5 shadow" type="submit">Find Gold</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <label class="mt-5">Activities</label>
+
+    <div class="jumbotron shadow">
+        {% for message in messages reversed %}
+        <p class="message">{{ message }}</p>
+        {% endfor %}
+    </div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

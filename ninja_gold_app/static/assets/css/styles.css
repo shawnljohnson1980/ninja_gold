@@ -1,0 +1,62 @@
+.navbar-brand.font {
+  font-family: "Bangers";
+  font-size: 35px;
+}
+
+.b-c {
+  background-color: gray;
+}
+
+h3 {
+  font-family: "Bangers";
+  font-weight: 207;
+}
+
+.font {
+  font-family: "Bangers";
+}
+
+.font1 {
+  font-family: "Bangers";
+}
+
+.col.col-s {
+  height: 250px;
+}
+
+.col.col-s {
+  border: 2px solid black;
+}
+
+.col {
+  border: 2px solid black;
+}
+
+.col.col-2 {
+  width: 1700px;
+  height: 250px;
+}
+.jumbotron {
+  margin-top: 0px;
+  padding: 0px !important;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 300px;
+  border: 2px black solid;
+  overflow: scroll;
+}
+h1 {
+  font-family: "Bangers";
+}
+label.mt-5 {
+  padding: 0px;
+  margin-left: 201px;
+}
+.message {
+  color: green;
+}
+.message2 {
+  color: red;
+}
